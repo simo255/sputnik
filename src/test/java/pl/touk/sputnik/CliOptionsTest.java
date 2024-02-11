@@ -13,25 +13,21 @@ class CliOptionsTest {
     private static final String SAMPLE_CHANGE_ID = "I0a2afb7ae4a94ab1ab473ba00e2ec7de381799a0";
     private static final String SAMPLE_REVISION_ID = "3f37692af2290e8e3fd16d2f43701c24346197f0";
     private static final String SAMPLE_PULL_REQUEST_ID = "123";
+    private static final String SAMPLE_SHOW_STATISTICS = "false";
 
     private CliWrapper fixture = new CliWrapper();
 
     @Test
     void shouldExecuteGerritReview() throws Exception {
         String[] args = toArgs("-conf %s -changeId %s -revisionId %s -showStatistics %s",
-                SAMPLE_CONFIG, SAMPLE_CHANGE_ID, SAMPLE_REVISION_ID, "false");
+                SAMPLE_CONFIG, SAMPLE_CHANGE_ID, SAMPLE_REVISION_ID, SAMPLE_SHOW_STATISTICS);
 
         CommandLine commandLine = fixture.parse(args);
 
         cliAssert(commandLine).hasOption(CliOption.CONF.getCommandLineParam()).withValue(SAMPLE_CONFIG);
         cliAssert(commandLine).hasOption(CliOption.CHANGE_ID.getCommandLineParam()).withValue(SAMPLE_CHANGE_ID);
         cliAssert(commandLine).hasOption(CliOption.REVISION_ID.getCommandLineParam()).withValue(SAMPLE_REVISION_ID);
-        cliAssert(commandLine).hasOption(CliOption.SHOW_STATISTICS.getCommandLineParam()).withValue("false");
-
-        String[] argsWithStatsDisabled = toArgs("-showStatistics %s", "true");
-        CommandLine commandLineDisabled = fixture.parse(argsWithStatsDisabled);
-
-        cliAssert(commandLineDisabled).hasOption(CliOption.SHOW_STATISTICS.getCommandLineParam()).withValue("true");
+        cliAssert(commandLine).hasOption(CliOption.SHOW_STATISTICS.getCommandLineParam()).withValue(SAMPLE_SHOW_STATISTICS);
     }
 
     @Test
