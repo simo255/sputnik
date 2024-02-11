@@ -28,10 +28,10 @@ class CliOptionsTest {
         cliAssert(commandLine).hasOption(CliOption.REVISION_ID.getCommandLineParam()).withValue(SAMPLE_REVISION_ID);
         cliAssert(commandLine).hasOption(CliOption.SHOW_STATISTICS.getCommandLineParam()).withValue("false");
 
-        String[] args = toArgs("-showStatistics %s", "true");
-        CommandLine commandLine = fixture.parse(args);
-        
-        cliAssert(commandLine).hasOption(CliOption.SHOW_STATISTICS.getCommandLineParam()).withValue("true");
+        String[] argsWithStatsDisabled = toArgs("-showStatistics %s", "true");
+        CommandLine commandLineDisabled = fixture.parse(argsWithStatsDisabled);
+
+        cliAssert(commandLineDisabled).hasOption(CliOption.SHOW_STATISTICS.getCommandLineParam()).withValue("true");
     }
 
     @Test
