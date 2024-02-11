@@ -15,7 +15,8 @@ public enum CliOption implements ConfigurationOption {
     PROVIDER("cli.provider", "Optional SCM provider (GitHub, GitLab) for using Sputnik as a service", null),
     FILE_REGEX("cli.fileRegex", "Review only file paths that fulfill provided regex", null),
     USERNAME("cli.username", "Passes username into connector", null),
-    PASSWORD("cli.password", "Pass password into connector", null);
+    PASSWORD("cli.password", "Pass password into connector", null),
+    SHOW_STATISTICS("cli.showStatistics", "Enables display of statistics after analysis", "false");
 
     private String key;
     private String description;

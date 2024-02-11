@@ -34,6 +34,7 @@ public class CliWrapper {
         localOptions.addOption(buildOption(CliOption.FILE_REGEX, true, false));
         localOptions.addOption(buildOption(CliOption.USERNAME, true, false));
         localOptions.addOption(buildOption(CliOption.PASSWORD, true, false));
+        localOptions.addOption(buildOption(CliOption.SHOW_STATISTICS, true, false));
 
         return localOptions;
     }
