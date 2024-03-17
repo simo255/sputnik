@@ -17,7 +17,7 @@ public enum CliOption implements ConfigurationOption {
     USERNAME("cli.username", "Passes username into connector", null),
     PASSWORD("cli.password", "Pass password into connector", null),
     SHOW_STATISTICS("cli.showStatistics", "Enables display of statistics after analysis", "false");
-
+    // commentaire ox
     private String key;
     private String description;
     private String defaultValue;
